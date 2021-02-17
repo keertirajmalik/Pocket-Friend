@@ -12,10 +12,18 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
+  google_fonts: ^1.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.8.1
+
+# To add the image as the app icon
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
 
 # The following section is specific to Flutter.
 flutter:
@@ -24,4 +32,4 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/
+    - assets/images/
