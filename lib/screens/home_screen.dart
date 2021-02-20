@@ -61,7 +61,12 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               child: Column(
-                children: [ExpenseTotalList(), ExpensesList()],
+                children: [
+                  SizedBox(height: 30.0),
+                  ExpenseTotalList(),
+                  SizedBox(height: 10.0),
+                  ExpensesList(),
+                ],
               ),
             ),
           ),
