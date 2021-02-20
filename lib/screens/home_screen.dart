@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pocket_friend/widgets/expense_list.dart';
+import 'package:pocket_friend/widgets/expense_total_list.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -32,12 +32,10 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 20.0),
                 Text(
                   'My budget',
-                  style: GoogleFonts.nunitoSans(
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: 10.0),
@@ -62,7 +60,9 @@ class HomeScreen extends StatelessWidget {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: ExpenseList(),
+              child: Column(
+                children: [ExpenseTotalList(), ExpensesList()],
+              ),
             ),
           ),
         ],

@@ -1,41 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:pocket_friend/models/expense_data.dart';
 import 'package:pocket_friend/widgets/expense_tile.dart';
 
-class ExpenseList extends StatelessWidget {
-  const ExpenseList({
-    Key key,
-  }) : super(key: key);
-
+class ExpensesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Text(
-              '17 Feb 2021',
-              style: GoogleFonts.nunitoSans(
-                textStyle: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                ),
-              ),
+    return Expanded(
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        itemBuilder: (context, index) {
+          return Container(
+            // padding: EdgeInsets.symmetric(vertical: 10.0),
+            child: ExpenseTile(
+              expense: ExpenseData().expenseAmount[index].expense,
+              amount: ExpenseData().expenseAmount[index].amount,
             ),
-            Spacer(),
-            Text(
-              '270',
-              style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.orange.shade400,
-                  fontWeight: FontWeight.w900),
-            ),
-          ],
-        ),
-        SizedBox(height: 10.0),
-        ExpensesTile(),
-      ],
+          );
+        },
+        itemCount: ExpenseData().expenseAmount.length,
+      ),
     );
   }
 }
