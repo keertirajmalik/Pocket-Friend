@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pocket_friend/models/expense_data.dart';
 
 class ExpenseTotalList extends StatelessWidget {
@@ -6,9 +7,10 @@ class ExpenseTotalList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(height: 10.0),
         Text(
-          '17 Feb 2021',
+          new DateFormat.yMMMMd()
+              .format(new DateTime.now())
+              .toString(), //TODO change the data format to 18 May 2020 from the May 18, 2020
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
