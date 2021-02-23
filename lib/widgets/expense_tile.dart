@@ -10,22 +10,27 @@ class ExpenseTile extends StatelessWidget {
     return Container(
       child: Row(
         children: [
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/images/$expense.png'),
+          ),
+          SizedBox(width: 10.0),
           Text(
             expense,
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
+              fontSize: 20.0,
             ),
           ),
           Spacer(),
           Text(
             amount,
             style: TextStyle(
-              color: Colors.orange.shade400,
-              fontWeight: FontWeight.w900,
+              color: Color(0xfff9906b),
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
             ),
           ),
-          SizedBox(height: 45.0)
         ],
       ),
     );
