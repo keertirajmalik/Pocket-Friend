@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
+  flutter_svg: ^0.19.1
+  font_awesome_flutter: ^8.11.0
   intl: ^0.16.0
 
 dev_dependencies:
@@ -36,4 +38,7 @@ flutter:
   fonts:
     - family: NunitoSans
       fonts:
-        - asset: assets/fonts/NunitoSans-Regular.ttf
+        # - asset: assets/fonts/NunitoSans-Regular.ttf
+        # - asset: assets/fonts/NunitoSans-Black.ttf
+        - asset: assets/fonts/NunitoSans-Bold.ttf
+        # - asset: assets/fonts/NunitoSans-ExtraBold.ttf
