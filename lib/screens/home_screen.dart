@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_friend/widgets/expense_list.dart';
 import 'package:pocket_friend/widgets/expense_total_list.dart';
+import 'package:pocket_friend/widgets/icons.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -52,7 +53,6 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -64,8 +64,8 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 30.0),
                   ExpenseTotalList(),
-                  SizedBox(height: 10.0),
                   ExpensesList(),
+                  AppIcons(),
                 ],
               ),
             ),
