@@ -38,7 +38,4 @@ flutter:
   fonts:
     - family: NunitoSans
       fonts:
-        # - asset: assets/fonts/NunitoSans-Regular.ttf
-        # - asset: assets/fonts/NunitoSans-Black.ttf
-        - asset: assets/fonts/NunitoSans-Bold.ttf
-        # - asset: assets/fonts/NunitoSans-ExtraBold.ttf
+        - asset: assets/fonts/NunitoSans-Regular.ttf
