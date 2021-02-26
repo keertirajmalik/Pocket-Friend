@@ -12,7 +12,7 @@ class AddTransactionScreen extends StatelessWidget {
           Expanded(
             child: Container(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -25,8 +25,12 @@ class AddTransactionScreen extends StatelessWidget {
                   Row(
                     children: [
                       Icon(Icons.close),
-                      Center(
-                        child: Text('Add Transcation'),
+                      Expanded(
+                        child: Text(
+                          'Add Transcation',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ],
                   ),
