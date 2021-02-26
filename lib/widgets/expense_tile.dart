@@ -12,6 +12,7 @@ class ExpenseTile extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundImage: AssetImage('assets/images/$expense.png'),
+            radius: 15.0,
           ),
           SizedBox(width: 10.0),
           Text(
@@ -19,7 +20,7 @@ class ExpenseTile extends StatelessWidget {
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 20.0,
+              fontSize: 15.0,
             ),
           ),
           Spacer(),
@@ -28,7 +29,7 @@ class ExpenseTile extends StatelessWidget {
             style: TextStyle(
               color: Color(0xfff9906b),
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 15.0,
             ),
           ),
         ],

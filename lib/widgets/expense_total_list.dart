@@ -16,7 +16,7 @@ class ExpenseTotalList extends StatelessWidget {
                 .toString(), //TODO: change the data format to 18 May 2020 from the May 18, 2020
             style: TextStyle(
               color: Colors.black,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.bold,
               fontSize: 20.0,
             ),
           ),
