@@ -36,7 +36,6 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: 10.0),
