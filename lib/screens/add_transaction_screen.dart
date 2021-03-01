@@ -100,6 +100,28 @@ class AddTransactionScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(
+                          Icons.calendar_today_rounded,
+                          color: Colors.white,
+                        ),
+                        backgroundColor: Colors.black,
+                      ),
+                      SizedBox(width: 10.0),
+                      Expanded(
+                        child: TextField(
+                          controller: _todayDate,
+                          decoration: InputDecoration(),
+                          cursorColor: Color(0xff27c791),
+                          keyboardType: TextInputType.datetime,
+                          style: TextStyle(
+                              fontSize: 22.0, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
