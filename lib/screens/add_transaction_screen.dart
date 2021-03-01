@@ -63,6 +63,43 @@ class AddTransactionScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.black,
+                      ),
+                      SizedBox(width: 10.0),
+                      Expanded(
+                        child: DropdownButton<String>(
+                          // value: dropdownValue,
+                          hint: Text('Choose the expense type'),
+                          icon: Icon(
+                            Icons.keyboard_arrow_right,
+                          ),
+                          iconSize: 35.0,
+                          elevation: 16,
+                          isExpanded: true,
+                          style: TextStyle(color: Color(0xff27c791)),
+                          underline: Container(
+                            height: 1.0,
+                            color: Colors.grey,
+                          ),
+                          onChanged: (String newValue) {
+                            // setState(() {
+                            //   dropdownValue = newValue;
+                            // });
+                          },
+                          items: <String>['One', 'Two', 'Free', 'Four']
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
