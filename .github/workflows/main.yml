@@ -7,7 +7,11 @@ on: push    # Default will running for every branch.
 jobs:
   build:
     # This job will run on ubuntu virtual machine
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
     
     # Setup Java environment in order to build the Android app.
