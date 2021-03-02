@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_friend/screens/home_screen.dart';
+import 'package:pocket_friend/screens/add_transaction_screen.dart';
 
 void main() {
   runApp(MyApp());
