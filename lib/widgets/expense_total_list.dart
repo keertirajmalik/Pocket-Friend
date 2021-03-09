@@ -10,10 +10,7 @@ class ExpenseTotalList extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            new DateFormat.yMMMMd()
-                .format(new DateTime.now())
-                // ignore: todo
-                .toString(), //TODO: change the data format to 18 May 2020 from the May 18, 2020
+            DateFormat('dd MMM y').format(DateTime.now()),
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
