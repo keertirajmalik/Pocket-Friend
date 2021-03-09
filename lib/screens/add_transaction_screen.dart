@@ -84,7 +84,7 @@ class AddTransactionScreen extends StatelessWidget {
                             height: 1.0,
                             color: Colors.grey,
                           ),
-                          onChanged: (String newValue) {
+                          onChanged: (String? newValue) {
                             // setState(() {
                             //   dropdownValue = newValue;
                             // });
