@@ -26,7 +26,12 @@ class AddTransactionScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.close),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(Icons.close),
+                      ),
                       Expanded(
                         child: Text(
                           'Add Transcation',
