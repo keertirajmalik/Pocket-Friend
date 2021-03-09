@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_friend/screens/add_transaction_screen.dart';
 
+import 'bottom_icon.dart';
+
 class AppIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,16 +19,8 @@ class AppIcons extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Icon(
-              Icons.account_balance_wallet_rounded,
-              size: 35.0,
-              color: Colors.white,
-            ),
-            Icon(
-              Icons.notifications_outlined,
-              size: 35.0,
-              color: Colors.white,
-            ),
+            BottomIcon(icon: Icons.account_balance_wallet_rounded),
+            BottomIcon(icon: Icons.notifications_outlined),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -35,11 +29,7 @@ class AppIcons extends StatelessWidget {
                       builder: (context) => AddTransactionScreen()),
                 );
               },
-              child: Icon(
-                Icons.add,
-                size: 35.0,
-                color: Colors.white,
-              ),
+              child: BottomIcon(icon: Icons.add),
             ),
           ],
         ),
