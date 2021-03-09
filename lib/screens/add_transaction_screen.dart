@@ -26,7 +26,12 @@ class AddTransactionScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.close),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(Icons.close),
+                      ),
                       Expanded(
                         child: Text(
                           'Add Transcation',
@@ -84,7 +89,7 @@ class AddTransactionScreen extends StatelessWidget {
                             height: 1.0,
                             color: Colors.grey,
                           ),
-                          onChanged: (String newValue) {
+                          onChanged: (String? newValue) {
                             // setState(() {
                             //   dropdownValue = newValue;
                             // });

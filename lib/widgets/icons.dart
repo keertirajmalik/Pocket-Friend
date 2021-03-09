@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_friend/screens/add_transaction_screen.dart';
 
 class AppIcons extends StatelessWidget {
   @override
@@ -26,10 +27,19 @@ class AppIcons extends StatelessWidget {
               size: 35.0,
               color: Colors.white,
             ),
-            Icon(
-              Icons.add,
-              size: 35.0,
-              color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AddTransactionScreen()),
+                );
+              },
+              child: Icon(
+                Icons.add,
+                size: 35.0,
+                color: Colors.white,
+              ),
             ),
           ],
         ),
