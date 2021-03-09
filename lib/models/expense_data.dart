@@ -6,6 +6,7 @@ class ExpenseData {
     Expense(expense: 'Food & Drinks', amount: '470'),
     Expense(expense: 'Home', amount: '570'),
     Expense(expense: 'Home', amount: '570'),
+    Expense(expense: 'Home', amount: '570'),
   ];
 
   String get totalExpense {
