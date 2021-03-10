@@ -41,3 +41,6 @@ flutter:
     - family: NunitoSans
       fonts:
         - asset: assets/fonts/NunitoSans-Regular.ttf
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Light.ttf
