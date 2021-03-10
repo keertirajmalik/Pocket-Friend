@@ -1,6 +1,8 @@
 import 'package:pocket_friend/models/expense.dart';
 
 class ExpenseData {
+  List<String> _expenseTypes = ['Electricity', 'Food & Drinks', 'Home'];
+
   List<Expense> expenseAmount = [
     Expense(expense: 'Electricity', amount: '270'),
     Expense(expense: 'Food & Drinks', amount: '470'),
@@ -15,5 +17,9 @@ class ExpenseData {
       totalExpense += int.parse(expense.amount!);
     }
     return totalExpense.toString();
+  }
+
+  List<String> get expenseTypes {
+    return _expenseTypes;
   }
 }

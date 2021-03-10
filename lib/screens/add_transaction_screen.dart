@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pocket_friend/models/expense_data.dart';
 
 class AddTransactionScreen extends StatelessWidget {
   @override
@@ -94,7 +95,8 @@ class AddTransactionScreen extends StatelessWidget {
                             //   dropdownValue = newValue;
                             // });
                           },
-                          items: <String>['One', 'Two', 'Free', 'Four']
+                          items: ExpenseData()
+                              .expenseTypes
                               .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
