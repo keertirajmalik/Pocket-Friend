@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pocket_friend/models/expense_data.dart';
 
-class AddTransactionScreen extends StatelessWidget {
+class AddTransactionScreen extends StatefulWidget {
+  @override
+  _AddTransactionScreenState createState() => _AddTransactionScreenState();
+}
+
+class _AddTransactionScreenState extends State<AddTransactionScreen> {
+  String dropdownValue = ExpenseData().expenseTypes.first;
+
   @override
   Widget build(BuildContext context) {
     final _todayDate = TextEditingController();
@@ -73,11 +80,13 @@ class AddTransactionScreen extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.black,
+                        backgroundImage:
+                            AssetImage('assets/images/$dropdownValue.png'),
                       ),
                       SizedBox(width: 10.0),
                       Expanded(
                         child: DropdownButton<String>(
-                          // value: dropdownValue,
+                          value: dropdownValue,
                           hint: Text('Choose the expense type'),
                           icon: Icon(
                             Icons.keyboard_arrow_right,
@@ -85,15 +94,18 @@ class AddTransactionScreen extends StatelessWidget {
                           iconSize: 35.0,
                           elevation: 16,
                           isExpanded: true,
-                          style: TextStyle(color: Color(0xff27c791)),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w500),
                           underline: Container(
                             height: 1.0,
                             color: Colors.grey,
                           ),
                           onChanged: (String? newValue) {
-                            // setState(() {
-                            //   dropdownValue = newValue;
-                            // });
+                            setState(() {
+                              dropdownValue = newValue!;
+                            });
                           },
                           items: ExpenseData()
                               .expenseTypes
@@ -124,7 +136,7 @@ class AddTransactionScreen extends StatelessWidget {
                           cursorColor: Color(0xff27c791),
                           keyboardType: TextInputType.datetime,
                           style: TextStyle(
-                              fontSize: 22.0, fontWeight: FontWeight.bold),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
