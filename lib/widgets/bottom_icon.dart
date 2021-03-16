@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class BottomIcon extends StatelessWidget {
   final IconData icon;
   const BottomIcon({
-    Key? key,
     required this.icon,
   });
 

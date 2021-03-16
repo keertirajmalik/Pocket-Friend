@@ -11,16 +11,16 @@ class ExpenseTotalList extends StatelessWidget {
         children: [
           Text(
             DateFormat('dd MMM y').format(DateTime.now()),
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 20.0,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             ExpenseData().totalExpense,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20.0,
               color: Color(0xfff86c3f),
               fontWeight: FontWeight.bold,

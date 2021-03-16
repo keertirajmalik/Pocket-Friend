@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff27c791),
+      backgroundColor: const Color(0xff27c791),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -18,28 +18,29 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.drag_handle,
                       size: 40.0,
                     ),
-                    Spacer(),
-                    CircleAvatar(
+                    const Spacer(),
+                    const CircleAvatar(
                       backgroundImage:
                           AssetImage('assets/images/profile_image.jpg'),
                     ),
                   ],
                 ),
-                SizedBox(height: 10.0),
-                Text(
+                const SizedBox(height: 10.0),
+                const Text(
                   'My budget',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30.0,
                   ),
                 ),
-                SizedBox(height: 10.0),
-                Text(
+                const SizedBox(height: 10.0),
+                const Text(
                   '₹ 5432.00',
                   style: TextStyle(
                       color: Colors.white,
@@ -51,7 +52,7 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30.0),
@@ -60,7 +61,7 @@ class HomeScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 30.0),
+                  const SizedBox(height: 30.0),
                   ExpenseTotalList(),
                   ExpensesList(),
                   AppIcons(),

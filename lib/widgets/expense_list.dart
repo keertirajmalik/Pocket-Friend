@@ -7,7 +7,7 @@ class ExpensesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         itemBuilder: (context, index) {
           return Container(
             padding: const EdgeInsets.all(10.0),

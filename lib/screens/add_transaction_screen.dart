@@ -15,16 +15,16 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
     final _todayDate = TextEditingController();
     _todayDate.text = DateFormat('dd MMM y').format(DateTime.now());
     return Scaffold(
-      backgroundColor: Color(0xff27c791),
+      backgroundColor: const Color(0xff27c791),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(padding: EdgeInsets.all(30.0)),
+          const Padding(padding: EdgeInsets.all(30.0)),
           Expanded(
             child: Container(
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30.0),
@@ -38,9 +38,9 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           'Add Transcation',
                           textAlign: TextAlign.center,
@@ -49,20 +49,20 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Row(
                     children: [
                       MaterialButton(
                         onPressed: () {},
-                        color: Color(0xff27c791),
+                        color: const Color(0xff27c791),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0)),
-                        child: Text('INR',
+                        child: const Text('INR',
                             style:
                                 TextStyle(color: Colors.white, fontSize: 18.0)),
                       ),
-                      SizedBox(width: 5.0),
-                      Expanded(
+                      const SizedBox(width: 5.0),
+                      const Expanded(
                         child: TextField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -83,21 +83,21 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                         backgroundImage:
                             AssetImage('assets/images/$dropdownValue.png'),
                       ),
-                      SizedBox(width: 10.0),
+                      const SizedBox(width: 10.0),
                       Expanded(
                         child: DropdownButton<String>(
                           value: dropdownValue,
-                          hint: Text('Choose the expense type'),
-                          icon: Icon(
+                          hint: const Text('Choose the expense type'),
+                          icon: const Icon(
                             Icons.keyboard_arrow_right,
                           ),
                           iconSize: 35.0,
                           elevation: 16,
                           isExpanded: true,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 20.0,
-                              fontWeight: FontWeight.w500),
+                              fontWeight: FontWeight.w400),
                           underline: Container(
                             height: 1.0,
                             color: Colors.grey,
@@ -121,22 +121,21 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                   ),
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
+                        backgroundColor: Colors.black,
                         child: Icon(
                           Icons.calendar_today_rounded,
                           color: Colors.white,
                         ),
-                        backgroundColor: Colors.black,
                       ),
-                      SizedBox(width: 10.0),
+                      const SizedBox(width: 10.0),
                       Expanded(
                         child: TextField(
                           controller: _todayDate,
-                          decoration: InputDecoration(),
-                          cursorColor: Color(0xff27c791),
+                          cursorColor: const Color(0xff27c791),
                           keyboardType: TextInputType.datetime,
-                          style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                              fontSize: 20.0, fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],

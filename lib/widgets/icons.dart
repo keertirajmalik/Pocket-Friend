@@ -10,7 +10,7 @@ class AppIcons extends StatelessWidget {
       padding: const EdgeInsets.all(1.0),
       child: Container(
         padding: const EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xff001827),
           borderRadius: BorderRadius.all(
             Radius.circular(25.0),
@@ -19,8 +19,8 @@ class AppIcons extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            BottomIcon(icon: Icons.account_balance_wallet_rounded),
-            BottomIcon(icon: Icons.notifications_outlined),
+            const BottomIcon(icon: Icons.account_balance_wallet_rounded),
+            const BottomIcon(icon: Icons.notifications_outlined),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -29,7 +29,7 @@ class AppIcons extends StatelessWidget {
                       builder: (context) => AddTransactionScreen()),
                 );
               },
-              child: BottomIcon(icon: Icons.add),
+              child: const BottomIcon(icon: Icons.add),
             ),
           ],
         ),
