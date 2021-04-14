@@ -12,6 +12,7 @@ class ExpensesList extends StatelessWidget {
           return ExpenseTile(
             expense: ExpenseData().expenseAmount[index].expense,
             amount: ExpenseData().expenseAmount[index].amount,
+
           );
         },
         itemCount: ExpenseData().expenseAmount.length,
