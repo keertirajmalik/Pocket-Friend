@@ -9,11 +9,9 @@ class ExpensesList extends StatelessWidget {
       child: ListView.builder(
         padding: const EdgeInsets.all(10.0),
         itemBuilder: (context, index) {
-          return Container(
-            child: ExpenseTile(
-              expense: ExpenseData().expenseAmount[index].expense,
-              amount: ExpenseData().expenseAmount[index].amount,
-            ),
+          return ExpenseTile(
+            expense: ExpenseData().expenseAmount[index].expense,
+            amount: ExpenseData().expenseAmount[index].amount,
           );
         },
         itemCount: ExpenseData().expenseAmount.length,
