@@ -10,10 +10,11 @@ class AddTransactionScreen extends StatefulWidget {
 class _AddTransactionScreenState extends State<AddTransactionScreen> {
   String dropdownValue = ExpenseData().expenseTypes.first;
 
+  DateTime selectedDate = DateTime.now();
+  String _todayDate = DateFormat('dd MMM y').format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
-    final _todayDate = TextEditingController();
-    _todayDate.text = DateFormat('dd MMM y').format(DateTime.now());
     return Scaffold(
       backgroundColor: const Color(0xff27c791),
       body: Column(
@@ -119,26 +120,30 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                       ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundColor: Colors.black,
-                        child: Icon(
-                          Icons.calendar_today_rounded,
-                          color: Colors.white,
-                        ),
+                  ListTile(
+                    onTap: () => _selectDate(context),
+                    contentPadding: EdgeInsets.zero,
+                    visualDensity: const VisualDensity(vertical: -4),
+                    leading: const CircleAvatar(
+                      backgroundColor: Colors.black,
+                      child: Icon(
+                        Icons.calendar_today_rounded,
+                        color: Colors.white,
                       ),
-                      const SizedBox(width: 10.0),
-                      Expanded(
-                        child: TextField(
-                          controller: _todayDate,
-                          cursorColor: const Color(0xff27c791),
-                          keyboardType: TextInputType.datetime,
-                          style: const TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ],
+                    ),
+                    title: Text(
+                      _todayDate,
+                      style: const TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.w500),
+                    ),
+                    subtitle: Container(
+                      height: 1.0,
+                      width: 130.0,
+                      color: Colors.grey,
+                    ),
+                    trailing: const Icon(
+                      Icons.calendar_today_rounded,
+                    ),
                   ),
                 ],
               ),
@@ -147,5 +152,21 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+          context: context,
+          initialDate: selectedDate,
+          firstDate: DateTime(2000),
+          lastDate: DateTime(2025),
+        ) ??
+        DateTime.now();
+    if (picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+        _todayDate = DateFormat('dd MMM y').format(selectedDate);
+      });
+    }
   }
 }
