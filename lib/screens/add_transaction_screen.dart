@@ -153,7 +153,9 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                         children: [
                           Expanded(
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
                               child: const Text('Cancel'),
                             ),
                           ),
