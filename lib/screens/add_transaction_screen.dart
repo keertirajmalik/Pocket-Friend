@@ -33,22 +33,10 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
               ),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Icon(Icons.close),
-                      ),
-                      const Expanded(
-                        child: Text(
-                          'Add Transcation',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    ],
+                  const Text(
+                    'Add Transcation',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20),
                   ),
                   const SizedBox(height: 20.0),
                   Row(
