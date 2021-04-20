@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pocket_friend/models/expense_data.dart';
+import 'package:provider/provider.dart';
 
 class ExpenseTotalList extends StatelessWidget {
   @override
@@ -18,15 +19,17 @@ class ExpenseTotalList extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Text(
-            ExpenseData().totalExpense,
-            style: const TextStyle(
-              fontSize: 20.0,
-              color: Color(0xfff86c3f),
-              fontWeight: FontWeight.bold,
-              // height: 5.0,
-            ),
-          ),
+          Consumer<ExpenseData>(builder: (context, expenseData, child) {
+            return Text(
+              expenseData.totalExpense,
+              style: const TextStyle(
+                fontSize: 20.0,
+                color: Color(0xfff86c3f),
+                fontWeight: FontWeight.bold,
+                // height: 5.0,
+              ),
+            );
+          }),
         ],
       ),
     );
