@@ -1,14 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:pocket_friend/models/expense.dart';
 
-class ExpenseData {
+class ExpenseData extends ChangeNotifier {
   final List<String> _expenseTypes = ['Electricity', 'Food & Drinks', 'Home'];
 
   List<Expense> expenseAmount = [
-    Expense(expense: 'Electricity', amount: '270'),
-    Expense(expense: 'Food & Drinks', amount: '470'),
-    Expense(expense: 'Home', amount: '570'),
-    Expense(expense: 'Home', amount: '570'),
-    Expense(expense: 'Home', amount: '570'),
+    Expense(expense: 'Electricity', amount: '270', date: '20 Apr 2021'),
+    Expense(expense: 'Food & Drinks', amount: '470', date: '20 Apr 2021'),
   ];
 
   String get totalExpense {
@@ -21,5 +19,11 @@ class ExpenseData {
 
   List<String> get expenseTypes {
     return _expenseTypes;
+  }
+
+  void addExpense(String newExpenseAmount, String newAmount, String newDate) {
+    expenseAmount.add(
+        Expense(expense: newExpenseAmount, amount: newAmount, date: newDate));
+    notifyListeners();
   }
 }
