@@ -1,17 +1,19 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:pocket_friend/models/expense.dart';
 
 class ExpenseData extends ChangeNotifier {
   final List<String> _expenseTypes = ['Electricity', 'Food & Drinks', 'Home'];
 
-  List<Expense> expenseAmount = [
+  final List<Expense> _expenseAmount = [
     Expense(expense: 'Electricity', amount: '270', date: '20 Apr 2021'),
     Expense(expense: 'Food & Drinks', amount: '470', date: '20 Apr 2021'),
   ];
 
   String get totalExpense {
     int totalExpense = 0;
-    for (final expense in expenseAmount) {
+    for (final expense in _expenseAmount) {
       totalExpense += int.parse(expense.amount!);
     }
     return totalExpense.toString();
@@ -21,9 +23,16 @@ class ExpenseData extends ChangeNotifier {
     return _expenseTypes;
   }
 
+  UnmodifiableListView<Expense> get expenses {
+    return UnmodifiableListView(_expenseAmount);
+  }
+
   void addExpense(String newExpenseAmount, String newAmount, String newDate) {
-    expenseAmount.add(
-        Expense(expense: newExpenseAmount, amount: newAmount, date: newDate));
+    if (newAmount != "") {
+      _expenseAmount.add(
+          Expense(expense: newExpenseAmount, amount: newAmount, date: newDate));
+    }
+
     notifyListeners();
   }
 }

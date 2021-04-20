@@ -12,11 +12,11 @@ class ExpensesList extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           itemBuilder: (context, index) {
             return ExpenseTile(
-              expense: expenseData.expenseAmount[index].expense,
-              amount: expenseData.expenseAmount[index].amount,
+              expense: expenseData.expenses[index].expense,
+              amount: expenseData.expenses[index].amount,
             );
           },
-          itemCount: expenseData.expenseAmount.length,
+          itemCount: expenseData.expenses.length,
         ),
       );
     });
