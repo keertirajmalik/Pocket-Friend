@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pocket_friend/models/expense_data.dart';
+import 'package:provider/provider.dart';
 
 class AddTransactionScreen extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
 
   DateTime selectedDate = DateTime.now();
   String _todayDate = DateFormat('dd MMM y').format(DateTime.now());
+  String newAmount = '';
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +35,10 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
               ),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Icon(Icons.close),
-                      ),
-                      const Expanded(
-                        child: Text(
-                          'Add Transcation',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    ],
+                  const Text(
+                    'Add Transcation',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20),
                   ),
                   const SizedBox(height: 20.0),
                   Row(
@@ -63,17 +53,19 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                                 TextStyle(color: Colors.white, fontSize: 18.0)),
                       ),
                       const SizedBox(width: 5.0),
-                      const Expanded(
+                      Expanded(
                         child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          cursorColor: Color(0xff27c791),
-                          autofocus: true,
-                          keyboardType: TextInputType.number,
-                          style: TextStyle(
-                              fontSize: 25.0, fontWeight: FontWeight.bold),
-                        ),
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                            ),
+                            cursorColor: const Color(0xff27c791),
+                            autofocus: true,
+                            keyboardType: TextInputType.number,
+                            style: const TextStyle(
+                                fontSize: 25.0, fontWeight: FontWeight.bold),
+                            onChanged: (amount) {
+                              newAmount = amount;
+                            }),
                       ),
                     ],
                   ),
@@ -145,6 +137,38 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                       Icons.calendar_today_rounded,
                     ),
                   ),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Cancel'),
+                            ),
+                          ),
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Provider.of<ExpenseData>(context, listen: false)
+                                    .addExpense(
+                                        dropdownValue, newAmount, _todayDate);
+                                Navigator.pop(context);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.green, // background
+                              ),
+                              child: const Text('Save'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
