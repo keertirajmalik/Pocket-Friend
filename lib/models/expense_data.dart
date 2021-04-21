@@ -7,8 +7,9 @@ class ExpenseData extends ChangeNotifier {
   final List<String> _expenseTypes = ['Electricity', 'Food & Drinks', 'Home'];
 
   final List<Expense> _expenseAmount = [
-    Expense(expense: 'Electricity', amount: '270', date: '20 Apr 2021'),
-    Expense(expense: 'Food & Drinks', amount: '470', date: '20 Apr 2021'),
+    Expense(expense: 'Electricity', amount: '20', date: '20 Apr 2021'),
+    Expense(expense: 'Food & Drinks', amount: '40', date: '20 Apr 2021'),
+    Expense(expense: 'Home', amount: '70', date: '20 Apr 2021'),
   ];
 
   String get totalExpense {
