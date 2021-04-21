@@ -1,7 +1,7 @@
 class Expense {
-  final String? expense;
+  final String? expenseType;
   final String? amount;
   final String? date;
 
-  Expense({this.expense, this.amount, this.date});
+  Expense({this.expenseType, this.amount, this.date});
 }
