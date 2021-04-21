@@ -7,9 +7,9 @@ class ExpenseData extends ChangeNotifier {
   final List<String> _expenseTypes = ['Electricity', 'Food & Drinks', 'Home'];
 
   final List<Expense> _expenseAmount = [
-    Expense(expense: 'Electricity', amount: '20', date: '20 Apr 2021'),
-    Expense(expense: 'Food & Drinks', amount: '40', date: '20 Apr 2021'),
-    Expense(expense: 'Home', amount: '70', date: '20 Apr 2021'),
+    Expense(expenseType: 'Electricity', amount: '20', date: '20 Apr 2021'),
+    Expense(expenseType: 'Food & Drinks', amount: '40', date: '20 Apr 2021'),
+    Expense(expenseType: 'Home', amount: '70', date: '20 Apr 2021'),
   ];
 
   String get totalExpense {
@@ -31,9 +31,14 @@ class ExpenseData extends ChangeNotifier {
   void addExpense(String newExpenseAmount, String newAmount, String newDate) {
     if (newAmount != "") {
       _expenseAmount.add(
-          Expense(expense: newExpenseAmount, amount: newAmount, date: newDate));
+          Expense(expenseType: newExpenseAmount, amount: newAmount, date: newDate));
     }
 
+    notifyListeners();
+  }
+
+  void deleteExpense(Expense expenseTile) {
+    _expenseAmount.remove(expenseTile);
     notifyListeners();
   }
 }
