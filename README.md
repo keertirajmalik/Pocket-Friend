@@ -8,6 +8,11 @@ I know there are so many budget tracker apps out there So this app purely for le
 
 ## User Interface
 
+This is how the app look at the moment
+![Home Page](assets/images/app%20home%20screen.png)
+
+![Add transcation Page](assets/images/add%20transcation%20page.png)
+
 This is the currently decided. UI design for the app.
 ![Design](assets/images/expense%20tracker%20UI%20design.png)
 I took the Design from [Dribble](https://dribbble.com/shots/11417471-Expense-Tracker/attachments/3032752?mode=media) Leave a like to designer if you liked it.
