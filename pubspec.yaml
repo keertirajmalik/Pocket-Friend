@@ -6,20 +6,22 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
-  flutter_svg: ^0.19.1
-  font_awesome_flutter: ^8.11.0
-  intl: ^0.16.0
+  flutter_svg: ^0.21.0-nullsafety.0
+  font_awesome_flutter: ^9.0.0-nullsafety
+  intl: ^0.17.0
+  lint: ^1.5.3
+  provider: ^5.0.0
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.8.1
 
 # To add the image as the app icon
 flutter_icons:
@@ -41,3 +43,6 @@ flutter:
     - family: NunitoSans
       fonts:
         - asset: assets/fonts/NunitoSans-Regular.ttf
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Light.ttf
