@@ -15,14 +15,14 @@ class ExpensesList extends StatelessWidget {
             final expense = expenseData.expenses[index];
             return Slidable(
                 actionPane: const SlidableDrawerActionPane(),
-                actions: <Widget>[
-                  IconSlideAction(
-                    caption: 'Edit',
-                    color: Colors.blue,
-                    icon: Icons.edit_outlined,
-                    onTap: () => {},
-                  ),
-                ],
+                // actions: <Widget>[
+                //   IconSlideAction(
+                //     caption: 'Edit',
+                //     color: Colors.blue,
+                //     icon: Icons.edit_outlined,
+                //     onTap: () => {},
+                //   ),
+                // ],
                 secondaryActions: <Widget>[
                   IconSlideAction(
                     caption: 'Delete',
