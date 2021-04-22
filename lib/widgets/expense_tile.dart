@@ -11,25 +11,28 @@ class ExpenseTile extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/$expense.png'),
-              radius: 15.0,
-            ),
-            title: Text(
-              expense!,
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 15.0,
+          Container(
+            color: Colors.white,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/$expense.png'),
+                radius: 15.0,
               ),
-            ),
-            trailing: Text(
-              amount!,
-              style: const TextStyle(
-                color: Color(0xfff9906b),
-                fontWeight: FontWeight.bold,
-                fontSize: 15.0,
+              title: Text(
+                expense!,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                ),
+              ),
+              trailing: Text(
+                amount!,
+                style: const TextStyle(
+                  color: Color(0xfff9906b),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                ),
               ),
             ),
           ),
