@@ -8,9 +8,14 @@ class AddTransactionScreen extends StatefulWidget {
   _AddTransactionScreenState createState() => _AddTransactionScreenState();
   String transactionAmount;
   String transactionType;
+  String transactionMode;
+  int transactionId;
 
   AddTransactionScreen(
-      {required this.transactionAmount, required this.transactionType});
+      {required this.transactionAmount,
+      required this.transactionType,
+      required this.transactionMode,
+      required this.transactionId});
 }
 
 class _AddTransactionScreenState extends State<AddTransactionScreen> {
@@ -157,10 +162,22 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                           Expanded(
                             child: ElevatedButton(
                               onPressed: () {
-                                Provider.of<ExpenseData>(context, listen: false)
-                                    .addExpense(widget.transactionType,
-                                        widget.transactionAmount, _todayDate);
-                                Navigator.pop(context);
+                                if (widget.transactionMode == "new") {
+                                  Provider.of<ExpenseData>(context,
+                                          listen: false)
+                                      .addExpense(widget.transactionType,
+                                          widget.transactionAmount, _todayDate);
+                                  Navigator.pop(context);
+                                } else if (widget.transactionMode == "edit") {
+                                  Provider.of<ExpenseData>(context,
+                                          listen: false)
+                                      .updateExpense(
+                                          widget.transactionId,
+                                          widget.transactionType,
+                                          widget.transactionAmount,
+                                          _todayDate);
+                                  Navigator.pop(context);
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.green, // background

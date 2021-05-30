@@ -5,12 +5,9 @@ import 'package:pocket_friend/models/expense.dart';
 
 class ExpenseData extends ChangeNotifier {
   final List<String> _expenseTypes = ['Electricity', 'Food & Drinks', 'Home'];
+  int id = 0;
 
-  final List<Expense> _expenseAmount = [
-    Expense(expenseType: 'Electricity', amount: '20', date: '20 Apr 2021'),
-    Expense(expenseType: 'Food & Drinks', amount: '40', date: '20 Apr 2021'),
-    Expense(expenseType: 'Home', amount: '70', date: '20 Apr 2021'),
-  ];
+  final List<Expense> _expenseAmount = [];
 
   String get totalExpense {
     int totalExpense = 0;
@@ -24,14 +21,21 @@ class ExpenseData extends ChangeNotifier {
     return _expenseTypes;
   }
 
+  int get nextId {
+    return id++;
+  }
+
   UnmodifiableListView<Expense> get expenses {
     return UnmodifiableListView(_expenseAmount);
   }
 
   void addExpense(String newExpenseAmount, String newAmount, String newDate) {
     if (newAmount != "") {
-      _expenseAmount.add(
-          Expense(expenseType: newExpenseAmount, amount: newAmount, date: newDate));
+      _expenseAmount.add(Expense(
+          id: nextId,
+          expenseType: newExpenseAmount,
+          amount: newAmount,
+          date: newDate));
     }
 
     notifyListeners();
@@ -39,6 +43,15 @@ class ExpenseData extends ChangeNotifier {
 
   void deleteExpense(Expense expenseTile) {
     _expenseAmount.remove(expenseTile);
+    notifyListeners();
+  }
+
+  void updateExpense(
+      int id, String newExpenseAmount, String newAmount, String newDate) {
+    if (newAmount != "") {
+      print(_expenseAmount[ExpenseData().id]);
+    }
+
     notifyListeners();
   }
 }

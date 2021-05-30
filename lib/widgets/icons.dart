@@ -27,9 +27,13 @@ class AppIcons extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => AddTransactionScreen(
-                          transactionAmount: "",
-                          transactionType: ExpenseData().expenseTypes.first)),
+                    builder: (context) => AddTransactionScreen(
+                      transactionAmount: "",
+                      transactionType: ExpenseData().expenseTypes.first,
+                      transactionMode: "new",
+                      transactionId: ExpenseData().nextId,
+                    ),
+                  ),
                 );
               },
               child: const BottomIcon(icon: Icons.add),
