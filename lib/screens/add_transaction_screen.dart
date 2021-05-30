@@ -22,6 +22,22 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
   DateTime selectedDate = DateTime.now();
   String _todayDate = DateFormat('dd MMM y').format(DateTime.now());
 
+  String get pageTitle {
+    if (widget.transactionMode.contains('new')) {
+      return 'Add Transaction';
+    } else {
+      return 'Update Transaction';
+    }
+  }
+
+  String get buttonText {
+    if (widget.transactionMode.contains('new')) {
+      return 'Save';
+    } else {
+      return 'Update';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final myController = TextEditingController(text: widget.transactionAmount);
@@ -43,10 +59,10 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
-                    'Add Transaction',
+                  Text(
+                    pageTitle,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                   const SizedBox(height: 20.0),
                   Row(
@@ -182,7 +198,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.green, // background
                               ),
-                              child: const Text('Save'),
+                              child: Text(buttonText),
                             ),
                           ),
                         ],

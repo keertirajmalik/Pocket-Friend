@@ -50,7 +50,6 @@ class ExpenseData extends ChangeNotifier {
           (value) => Expense(
               expenseType: newExpenseAmount, amount: newAmount, date: newDate));
     }
-
     notifyListeners();
   }
 }
