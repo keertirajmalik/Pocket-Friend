@@ -13,7 +13,7 @@ class ExpensesList extends StatelessWidget {
         child: ListView.builder(
           padding: const EdgeInsets.all(10.0),
           itemBuilder: (context, index) {
-            final expense = expenseData.expenses[index];
+            final expense = expenseData.expenses.values.elementAt(index);
             return Slidable(
                 actionPane: const SlidableDrawerActionPane(),
                 actions: <Widget>[
@@ -29,7 +29,8 @@ class ExpensesList extends StatelessWidget {
                             transactionAmount: expense.amount!,
                             transactionType: expense.expenseType!,
                             transactionMode: "edit",
-                            transactionId: expense.id,
+                            transactionId:
+                                expenseData.expenses.keys.elementAt(index),
                           ),
                         ),
                       );
@@ -42,7 +43,9 @@ class ExpensesList extends StatelessWidget {
                     color: Colors.red,
                     icon: Icons.delete,
                     onTap: () => {
-                      expenseData.deleteExpense(expense),
+                      expenseData.deleteExpense(
+                        expenseData.expenses.keys.elementAt(index),
+                      ),
                     },
                   ),
                 ],
