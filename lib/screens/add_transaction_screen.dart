@@ -6,17 +6,20 @@ import 'package:provider/provider.dart';
 class AddTransactionScreen extends StatefulWidget {
   @override
   _AddTransactionScreenState createState() => _AddTransactionScreenState();
+  String transactionAmount;
+  String transactionType;
+
+  AddTransactionScreen(
+      {required this.transactionAmount, required this.transactionType});
 }
 
 class _AddTransactionScreenState extends State<AddTransactionScreen> {
-  String dropdownValue = ExpenseData().expenseTypes.first;
-
   DateTime selectedDate = DateTime.now();
   String _todayDate = DateFormat('dd MMM y').format(DateTime.now());
-  String newAmount = '';
 
   @override
   Widget build(BuildContext context) {
+    final myController = TextEditingController(text: widget.transactionAmount);
     return Scaffold(
       backgroundColor: const Color(0xff27c791),
       body: Column(
@@ -36,7 +39,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
               child: Column(
                 children: [
                   const Text(
-                    'Add Transcation',
+                    'Add Transaction',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20),
                   ),
@@ -64,7 +67,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                             style: const TextStyle(
                                 fontSize: 25.0, fontWeight: FontWeight.bold),
                             onChanged: (amount) {
-                              newAmount = amount;
+                              widget.transactionAmount = amount;
                             }),
                       ),
                     ],
@@ -73,13 +76,13 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.black,
-                        backgroundImage:
-                            AssetImage('assets/images/$dropdownValue.png'),
+                        backgroundImage: AssetImage(
+                            'assets/images/${widget.transactionType}.png'),
                       ),
                       const SizedBox(width: 10.0),
                       Expanded(
                         child: DropdownButton<String>(
-                          value: dropdownValue,
+                          value: widget.transactionType,
                           hint: const Text('Choose the expense type'),
                           icon: const Icon(
                             Icons.keyboard_arrow_right,
@@ -97,7 +100,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                           ),
                           onChanged: (String? newValue) {
                             setState(() {
-                              dropdownValue = newValue!;
+                              widget.transactionType = newValue!;
                             });
                           },
                           items: ExpenseData()
@@ -155,8 +158,8 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                             child: ElevatedButton(
                               onPressed: () {
                                 Provider.of<ExpenseData>(context, listen: false)
-                                    .addExpense(
-                                        dropdownValue, newAmount, _todayDate);
+                                    .addExpense(widget.transactionType,
+                                        widget.transactionAmount, _todayDate);
                                 Navigator.pop(context);
                               },
                               style: ElevatedButton.styleFrom(

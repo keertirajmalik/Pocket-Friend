@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_friend/models/expense_data.dart';
 import 'package:pocket_friend/screens/add_transaction_screen.dart';
 
 import 'bottom_icon.dart';
@@ -26,7 +27,9 @@ class AppIcons extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => AddTransactionScreen()),
+                      builder: (context) => AddTransactionScreen(
+                          transactionAmount: "",
+                          transactionType: ExpenseData().expenseTypes.first)),
                 );
               },
               child: const BottomIcon(icon: Icons.add),
