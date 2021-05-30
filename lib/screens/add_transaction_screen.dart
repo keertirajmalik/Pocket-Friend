@@ -6,20 +6,44 @@ import 'package:provider/provider.dart';
 class AddTransactionScreen extends StatefulWidget {
   @override
   _AddTransactionScreenState createState() => _AddTransactionScreenState();
-  String transactionAmount;
-  String transactionType;
+  final String transactionAmount;
+  final String transactionType;
+  final String transactionMode;
+  final int transactionId;
 
-  AddTransactionScreen(
-      {required this.transactionAmount, required this.transactionType});
+  const AddTransactionScreen(
+      {required this.transactionAmount,
+      required this.transactionType,
+      required this.transactionMode,
+      required this.transactionId});
 }
 
 class _AddTransactionScreenState extends State<AddTransactionScreen> {
   DateTime selectedDate = DateTime.now();
   String _todayDate = DateFormat('dd MMM y').format(DateTime.now());
 
+  String get pageTitle {
+    if (widget.transactionMode.contains('new')) {
+      return 'Add Transaction';
+    } else {
+      return 'Update Transaction';
+    }
+  }
+
+  String get buttonText {
+    if (widget.transactionMode.contains('new')) {
+      return 'Save';
+    } else {
+      return 'Update';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final myController = TextEditingController(text: widget.transactionAmount);
+    String transactionAmount = widget.transactionAmount;
+    String transactionType = widget.transactionType;
+    final myController = TextEditingController(text: transactionAmount);
+
     return Scaffold(
       backgroundColor: const Color(0xff27c791),
       body: Column(
@@ -38,10 +62,10 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
-                    'Add Transaction',
+                  Text(
+                    pageTitle,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                   const SizedBox(height: 20.0),
                   Row(
@@ -67,7 +91,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                             style: const TextStyle(
                                 fontSize: 25.0, fontWeight: FontWeight.bold),
                             onChanged: (amount) {
-                              widget.transactionAmount = amount;
+                              transactionAmount = amount;
                             }),
                       ),
                     ],
@@ -100,7 +124,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                           ),
                           onChanged: (String? newValue) {
                             setState(() {
-                              widget.transactionType = newValue!;
+                              transactionType = newValue!;
                             });
                           },
                           items: ExpenseData()
@@ -157,15 +181,27 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                           Expanded(
                             child: ElevatedButton(
                               onPressed: () {
-                                Provider.of<ExpenseData>(context, listen: false)
-                                    .addExpense(widget.transactionType,
-                                        widget.transactionAmount, _todayDate);
-                                Navigator.pop(context);
+                                if (widget.transactionMode == 'new') {
+                                  Provider.of<ExpenseData>(context,
+                                          listen: false)
+                                      .addExpense(widget.transactionType,
+                                          widget.transactionAmount, _todayDate);
+                                  Navigator.pop(context);
+                                } else if (widget.transactionMode == 'edit') {
+                                  Provider.of<ExpenseData>(context,
+                                          listen: false)
+                                      .updateExpense(
+                                          widget.transactionId,
+                                          widget.transactionType,
+                                          widget.transactionAmount,
+                                          _todayDate);
+                                  Navigator.pop(context);
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.green, // background
                               ),
-                              child: const Text('Save'),
+                              child: Text(buttonText),
                             ),
                           ),
                         ],
