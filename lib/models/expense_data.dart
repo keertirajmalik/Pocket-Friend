@@ -42,10 +42,13 @@ class ExpenseData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateExpense(
-      int id, String newExpenseAmount, String newAmount, String newDate) {
+  void updateExpense(int transactionId, String newExpenseAmount,
+      String newAmount, String newDate) {
     if (newAmount != "") {
-      print(_expenseAmount[ExpenseData().id]);
+      _expenseAmount.update(
+          transactionId,
+          (value) => Expense(
+              expenseType: newExpenseAmount, amount: newAmount, date: newDate));
     }
 
     notifyListeners();
