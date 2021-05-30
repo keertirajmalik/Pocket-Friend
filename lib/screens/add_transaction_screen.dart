@@ -46,19 +46,19 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                   const SizedBox(height: 20.0),
                   Row(
                     children: [
-                      MaterialButton(
-                        onPressed: () {},
-                        color: const Color(0xff27c791),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0)),
-                        child: const Text('INR',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18.0)),
-                      ),
-                      const SizedBox(width: 5.0),
                       Expanded(
                         child: TextField(
-                            decoration: const InputDecoration(
+                            controller: myController,
+                            decoration: InputDecoration(
+                              prefix: MaterialButton(
+                                onPressed: () {},
+                                color: const Color(0xff27c791),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0)),
+                                child: const Text('INR',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 18.0)),
+                              ),
                               border: InputBorder.none,
                             ),
                             cursorColor: const Color(0xff27c791),
