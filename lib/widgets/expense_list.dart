@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:pocket_friend/models/expense_data.dart';
+import 'package:pocket_friend/screens/add_transaction_screen.dart';
 import 'package:pocket_friend/widgets/expense_tile.dart';
 import 'package:provider/provider.dart';
 
@@ -15,14 +16,24 @@ class ExpensesList extends StatelessWidget {
             final expense = expenseData.expenses[index];
             return Slidable(
                 actionPane: const SlidableDrawerActionPane(),
-                // actions: <Widget>[
-                //   IconSlideAction(
-                //     caption: 'Edit',
-                //     color: Colors.blue,
-                //     icon: Icons.edit_outlined,
-                //     onTap: () => {},
-                //   ),
-                // ],
+                actions: <Widget>[
+                  IconSlideAction(
+                    caption: 'Edit',
+                    color: Colors.blue,
+                    icon: Icons.edit_outlined,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddTransactionScreen(
+                            transactionAmount: expense.amount!,
+                            transactionType: expense.expenseType!,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
                 secondaryActions: <Widget>[
                   IconSlideAction(
                     caption: 'Delete',
