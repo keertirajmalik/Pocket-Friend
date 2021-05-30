@@ -28,10 +28,10 @@ class AppIcons extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => AddTransactionScreen(
-                      transactionAmount: "",
+                      transactionAmount: '',
                       transactionType: ExpenseData().expenseTypes.first,
-                      transactionMode: "new",
-                      transactionId: ExpenseData().nextId,
+                      transactionMode: 'new',
+                      transactionId: ExpenseData().transactionId,
                     ),
                   ),
                 );

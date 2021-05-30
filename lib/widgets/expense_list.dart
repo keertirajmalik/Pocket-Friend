@@ -28,7 +28,7 @@ class ExpensesList extends StatelessWidget {
                           builder: (context) => AddTransactionScreen(
                             transactionAmount: expense.amount!,
                             transactionType: expense.expenseType!,
-                            transactionMode: "edit",
+                            transactionMode: 'edit',
                             transactionId:
                                 expenseData.expenses.keys.elementAt(index),
                           ),

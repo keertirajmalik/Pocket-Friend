@@ -21,7 +21,7 @@ class ExpenseData extends ChangeNotifier {
     return _expenseTypes;
   }
 
-  int get nextId {
+  int get transactionId {
     return id++;
   }
 
@@ -29,10 +29,10 @@ class ExpenseData extends ChangeNotifier {
     return UnmodifiableMapView(_expenseAmount);
   }
 
-  void addExpense(String newExpenseAmount, String newAmount, String newDate) {
-    if (newAmount != "") {
-      _expenseAmount[nextId] = Expense(
-          expenseType: newExpenseAmount, amount: newAmount, date: newDate);
+  void addExpense(String newExpenseType, String newAmount, String newDate) {
+    if (newAmount != '') {
+      _expenseAmount[transactionId] = Expense(
+          expenseType: newExpenseType, amount: newAmount, date: newDate);
     }
     notifyListeners();
   }
@@ -42,13 +42,13 @@ class ExpenseData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateExpense(int transactionId, String newExpenseAmount,
+  void updateExpense(int transactionId, String newExpenseType,
       String newAmount, String newDate) {
     if (newAmount != "") {
       _expenseAmount.update(
           transactionId,
           (value) => Expense(
-              expenseType: newExpenseAmount, amount: newAmount, date: newDate));
+              expenseType: newExpenseType, amount: newAmount, date: newDate));
     }
     notifyListeners();
   }
