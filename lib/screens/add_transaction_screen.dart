@@ -3,15 +3,16 @@ import 'package:intl/intl.dart';
 import 'package:pocket_friend/models/expense_data.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class AddTransactionScreen extends StatefulWidget {
   @override
   _AddTransactionScreenState createState() => _AddTransactionScreenState();
-  final String transactionAmount;
-  final String transactionType;
+  String transactionAmount;
+  String transactionType;
   final String transactionMode;
   final int transactionId;
 
-  const AddTransactionScreen(
+  AddTransactionScreen(
       {required this.transactionAmount,
       required this.transactionType,
       required this.transactionMode,
@@ -40,9 +41,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String transactionAmount = widget.transactionAmount;
-    String transactionType = widget.transactionType;
-    final myController = TextEditingController(text: transactionAmount);
+    final myController = TextEditingController(text: widget.transactionAmount);
 
     return Scaffold(
       backgroundColor: const Color(0xff27c791),
@@ -91,7 +90,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                             style: const TextStyle(
                                 fontSize: 25.0, fontWeight: FontWeight.bold),
                             onChanged: (amount) {
-                              transactionAmount = amount;
+                              widget.transactionAmount = amount;
                             }),
                       ),
                     ],
@@ -124,7 +123,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                           ),
                           onChanged: (String? newValue) {
                             setState(() {
-                              transactionType = newValue!;
+                              widget.transactionType = newValue!;
                             });
                           },
                           items: ExpenseData()
@@ -184,8 +183,11 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                                 if (widget.transactionMode == 'new') {
                                   Provider.of<ExpenseData>(context,
                                           listen: false)
-                                      .addExpense(widget.transactionType,
-                                          widget.transactionAmount, _todayDate);
+                                      .addExpense(
+                                    widget.transactionType,
+                                    widget.transactionAmount,
+                                    _todayDate,
+                                  );
                                   Navigator.pop(context);
                                 } else if (widget.transactionMode == 'edit') {
                                   Provider.of<ExpenseData>(context,

@@ -19,7 +19,7 @@ This is the currently decided. UI design for the app.
 I took the Design from [Dribble](https://dribbble.com/shots/11417471-Expense-Tracker/attachments/3032752?mode=media) Leave a like to designer if you liked it.
 
 Inside the app this how the monthly summary is going to look like but going to make looks like the above design:
-![Monthly summary Desing](assets/images/monthly%20summary%20page%20design.png)
+![Monthly summary Design](assets/images/monthly%20summary%20page%20design.png)
 
 ## Planned Feature
 
